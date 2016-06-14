@@ -14,7 +14,7 @@
 
 namespace Doctrine\Bundle\MongoDBBundle\Logger;
 
-use Symfony\Component\HttpKernel\Log\LoggerInterface as SymfonyLogger;
+use \Psr\Log\LoggerInterface as ExternalLogger;
 
 /**
  * A lightweight query logger.
@@ -27,7 +27,7 @@ class Logger implements LoggerInterface
     private $prefix;
     private $batchInsertTreshold;
 
-    public function __construct(SymfonyLogger $logger = null, $prefix = 'MongoDB query: ')
+    public function __construct(ExternalLogger $logger = null, $prefix = 'MongoDB query: ')
     {
         $this->logger = $logger;
         $this->prefix = $prefix;
